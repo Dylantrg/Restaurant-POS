@@ -1,0 +1,1 @@
+This folder holds Go structs representing domain models (e.g., User, Order, MenuItem).

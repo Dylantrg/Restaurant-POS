@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=pos
+      - POSTGRES_PASSWORD=pos
+      - POSTGRES_DB=posdb
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - DATABASE_URL=postgres://pos:pos@db:5432/posdb?sslmode=disable
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: ["go", "run", "./cmd/server"]
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    command: ["npm", "run", "dev", "--", "--host"]
+    environment:
+      - VITE_BACKEND_URL=http://backend:8080
+    depends_on:
+      - backend
+      - db
+
+volumes:
+  dbdata:
