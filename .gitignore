@@ -32,4 +32,4 @@ go.work.sum
 # .vscode/
 
 # Node.js
-node_modules/
+POS-management/frontend/node_modules
