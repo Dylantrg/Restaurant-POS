@@ -1,0 +1,91 @@
+### Global ###
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# Editors/IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+
+# Logs
+logs/
+*.log
+logs/*.log
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Coverage & reports
+coverage/
+*.lcov
+
+### Docker ###
+.docker/
+docker/*.env
+
+### Node / Frontend (Vite/React) ###
+node_modules/
+frontend/node_modules/
+.pnp/
+.pnp.js
+.npm/
+.eslintcache
+.node_repl_history
+*.tgz
+
+# Vite / build outputs
+dist/
+frontend/dist/
+frontend/.vite/
+.cache/
+.parcel-cache/
+
+# Framework outputs (if added later)
+.next/
+out/
+.nuxt/
+.serverless/
+.vuepress/dist
+
+!/frontend/public/
+
+### Go / Backend ###
+# Binaries and build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.a
+
+# Go build cache & module cache (do not commit)
+backend/bin/
+backend/build/
+
+# Database & local data
+*.sqlite
+*.db
+*.sql-journal
+
+# Migrations binary outputs (if any)
+migrations/*-lock
+
+### Misc ###
+# Local dev files
+*.local
+*.tmp
+tmp/
+.envrc
+
