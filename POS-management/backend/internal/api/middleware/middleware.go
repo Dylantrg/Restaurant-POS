@@ -14,9 +14,6 @@ func Chain(h http.HandlerFunc) http.HandlerFunc {
 			return
 		}
 
-		// Simple logging (placeholder)
-		// log.Printf("%s %s", r.Method, r.URL.Path)
-
 		h(w, r)
 	}
 }
